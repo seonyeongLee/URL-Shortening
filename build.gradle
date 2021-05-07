@@ -1,0 +1,27 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.5'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.musinsa'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2'
+	compile 'org.springframework.boot:spring-boot-starter-jdbc'
+	compile 'mysql:mysql-connector-java'
+}
+
+test {
+	useJUnitPlatform()
+}
