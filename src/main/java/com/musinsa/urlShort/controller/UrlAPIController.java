@@ -1,20 +1,41 @@
 package com.musinsa.urlShort.controller;
 
+import com.musinsa.urlShort.model.UrlDetailReqVo;
+import com.musinsa.urlShort.model.UrlInfoVo;
 import com.musinsa.urlShort.service.UrlService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
-import java.util.Map;
 
-@RestController
+@Controller
+@RequestMapping("/api/url")
+@Slf4j
+@RequiredArgsConstructor
 public class UrlAPIController {
-    @Autowired
-    private UrlService urlService;
+    private final UrlService urlService;
 
-    @GetMapping("/url/getUrlInfo")
-    public List<Map<String, Object>> getUrlInfo() {
-        return urlService.getUrlInfo();
+    private static final String URL_PREFIX = "http://localhost:8080/";
+
+    @PostMapping("/getUrlList.do")
+    @ResponseBody
+    public List<UrlInfoVo> getUrlInfo() {
+        return urlService.getUrlList();
+    }
+
+    @PostMapping(value = "/createShortUrl.do")
+    @ResponseBody
+    public UrlInfoVo createShortUrl(@RequestBody UrlDetailReqVo reqVo) throws UnsupportedEncodingException {
+        UrlInfoVo resVo = new UrlInfoVo();
+        String shortUrl = urlService.createShortUrl(reqVo);
+
+        resVo.setOriginUrl(reqVo.getOriginUrl());
+        resVo.setShortUrl(URL_PREFIX + shortUrl);
+
+        return resVo;
     }
 }

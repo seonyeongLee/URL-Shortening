@@ -4,7 +4,71 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.musinsa.urlShort.domain.UrlRepository">
-    <select id="getUrlInfo" resultType="java.util.HashMap">
-        SELECT * FROM URL_INFO
+    <select id="selectUrlList" resultType="com.musinsa.urlShort.model.UrlInfoVo">
+        /* UrlInfoMapper.selectUrlList */
+        SELECT
+            RID AS rid,
+            ORIGIN_URL AS originUrl,
+            SHORT_URL AS shortUrl,
+            URL_CALL_NUM AS urlCallNum
+        FROM URL_INFO
     </select>
+
+    <select id="selectOriginUrl" parameterType="com.musinsa.urlShort.model.UrlDetailReqVo"
+            resultType="com.musinsa.urlShort.model.UrlInfoVo">
+        /* UrlInfoMapper.selectOriginUrl */
+        SELECT
+            ORIGIN_URL AS originUrl
+        FROM URL_INFO
+        WHERE SHORT_URL = #{shortUrl}
+    </select>
+
+    <select id="selectUrlExist" parameterType="com.musinsa.urlShort.model.UrlDetailReqVo"
+            resultType="com.musinsa.urlShort.model.UrlInfoVo">
+        /* UrlInfoMapper.selectUrlExist */
+        SELECT
+            RID AS rid,
+            ORIGIN_URL AS originUrl,
+            SHORT_URL AS shortUrl,
+            URL_CALL_NUM AS urlCallNum
+        FROM URL_INFO
+        WHERE ORIGIN_URL = #{originUrl}
+    </select>
+
+    <insert id="insertUrl" parameterType="com.musinsa.urlShort.model.UrlInsertVo">
+        /* UrlInfoMapper.insertUrl */
+        INSERT INTO URL_INFO (
+            RID,
+            ORIGIN_URL,
+            URL_CALL_NUM
+        ) VALUES (
+                     ( SELECT IFNULL(MAX(RID)+1, 10000000)
+                       FROM URL_INFO UI    ),
+                     #{originUrl},
+                     '1'
+                 )
+    </insert>
+
+    <update id="updateShortUrl" parameterType="com.musinsa.urlShort.model.UrlUpdateVo">
+        /* UrlInfoMapper.updateShortUrl */
+        UPDATE URL_INFO
+        SET
+            SHORT_URL = #{shortUrl}
+        WHERE RID = #{rid}
+    </update>
+
+    <update id="updateUrl" parameterType="com.musinsa.urlShort.model.UrlUpdateVo">
+        /* UrlInfoMapper.updateUrl */
+        UPDATE URL_INFO
+        SET
+            URL_CALL_NUM = #{urlCallNum}
+        WHERE RID = #{rid}
+    </update>
+
+    <delete id="deleteUrl" parameterType="com.musinsa.urlShort.model.UrlDeleteVo">
+        /* UrlInfoMapper.deleteUrl */
+        DELETE
+        FROM URL_INFO
+        WHERE RID = #{rid}
+    </delete>
 </mapper>

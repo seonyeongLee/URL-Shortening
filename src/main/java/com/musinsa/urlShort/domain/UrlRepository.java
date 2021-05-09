@@ -1,13 +1,26 @@
 package com.musinsa.urlShort.domain;
 
+import com.musinsa.urlShort.model.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 @Mapper
 @Repository
 public interface UrlRepository {
-    List<Map<String, Object>> getUrlInfo();
+    List<UrlInfoVo> selectUrlList();
+
+    String selectOriginUrl(String shortUrl);
+
+    UrlInfoVo selectUrlExist(UrlDetailReqVo reqVo);
+
+    void insertUrl(UrlInsertVo reqVo);
+
+    void updateShortUrl(UrlUpdateVo reqVo);
+
+    void updateUrl(UrlUpdateVo reqVo);
+
+    void deleteUrl(UrlDeleteVo reqVo);
+
 }
