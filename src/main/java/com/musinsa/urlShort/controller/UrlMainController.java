@@ -2,18 +2,15 @@ package com.musinsa.urlShort.controller;
 
 import com.musinsa.common.utility.ObjectUtility;
 import com.musinsa.urlShort.service.UrlService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequiredArgsConstructor
 public class UrlMainController {
-    @Autowired
-    private UrlService urlService;
+    private final UrlService urlService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String mainPage(Model model) {
@@ -33,6 +30,11 @@ public class UrlMainController {
         }
 
         return "/noUrl";
+    }
+
+    @RequestMapping(value = "favicon.ico", method = RequestMethod.GET)
+    @ResponseBody
+    void returnNoFavicon() {
     }
 
 }

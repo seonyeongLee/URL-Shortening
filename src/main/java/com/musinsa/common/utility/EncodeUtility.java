@@ -22,7 +22,7 @@ public class EncodeUtility {
 
     public static String urlEncoder(int seq) throws NoSuchAlgorithmException {
         String encodeStr = encoding(seq);
-        log.info("base62 encode result:" + encodeStr);
+        log.info("base62 encode result => {}", encodeStr);
         return encodeStr;
     }
 
