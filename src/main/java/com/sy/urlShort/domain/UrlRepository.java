@@ -1,6 +1,6 @@
-package com.musinsa.urlShort.domain;
+package com.sy.urlShort.domain;
 
-import com.musinsa.urlShort.model.*;
+import com.sy.urlShort.model.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

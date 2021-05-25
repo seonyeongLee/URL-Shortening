@@ -1,10 +1,10 @@
-package com.musinsa.urlShort.service.impl;
+package com.sy.urlShort.service.impl;
 
-import com.musinsa.common.utility.EncodeUtility;
-import com.musinsa.common.utility.ObjectUtility;
-import com.musinsa.urlShort.domain.UrlRepository;
-import com.musinsa.urlShort.model.*;
-import com.musinsa.urlShort.service.UrlService;
+import com.sy.common.utility.EncodeUtility;
+import com.sy.common.utility.ObjectUtility;
+import com.sy.urlShort.domain.UrlRepository;
+import com.sy.urlShort.model.*;
+import com.sy.urlShort.service.UrlService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

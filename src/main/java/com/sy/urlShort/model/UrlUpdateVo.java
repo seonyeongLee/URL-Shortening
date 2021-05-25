@@ -1,4 +1,4 @@
-package com.musinsa.urlShort.model;
+package com.sy.urlShort.model;
 
 import lombok.*;
 

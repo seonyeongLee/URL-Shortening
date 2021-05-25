@@ -1,7 +1,7 @@
-package com.musinsa.urlShort.controller;
+package com.sy.urlShort.controller;
 
-import com.musinsa.common.utility.ObjectUtility;
-import com.musinsa.urlShort.service.UrlService;
+import com.sy.common.utility.ObjectUtility;
+import com.sy.urlShort.service.UrlService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

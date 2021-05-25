@@ -19,5 +19,5 @@ logging:
     root: info
 
 mybatis:
-  type-aliases-package: com.musinsa.urlShort
+  type-aliases-package: com.sy.urlShort
   mapper-locations: classpath:mybatis/mapper/**/*.xml

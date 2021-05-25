@@ -3,8 +3,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.musinsa.urlShort.domain.UrlRepository">
-    <select id="selectUrlList" resultType="com.musinsa.urlShort.model.UrlInfoVo">
+<mapper namespace="com.sy.urlShort.domain.UrlRepository">
+    <select id="selectUrlList" resultType="com.sy.urlShort.model.UrlInfoVo">
         /* UrlInfoMapper.selectUrlList */
         SELECT
             RID AS rid,
@@ -14,8 +14,8 @@
         FROM URL_INFO
     </select>
 
-    <select id="selectOriginUrl" parameterType="com.musinsa.urlShort.model.UrlDetailReqVo"
-            resultType="com.musinsa.urlShort.model.UrlInfoVo">
+    <select id="selectOriginUrl" parameterType="com.sy.urlShort.model.UrlDetailReqVo"
+            resultType="com.sy.urlShort.model.UrlInfoVo">
         /* UrlInfoMapper.selectOriginUrl */
         SELECT
             ORIGIN_URL AS originUrl
@@ -23,8 +23,8 @@
         WHERE SHORT_URL = #{shortUrl}
     </select>
 
-    <select id="selectUrlExist" parameterType="com.musinsa.urlShort.model.UrlDetailReqVo"
-            resultType="com.musinsa.urlShort.model.UrlInfoVo">
+    <select id="selectUrlExist" parameterType="com.sy.urlShort.model.UrlDetailReqVo"
+            resultType="com.sy.urlShort.model.UrlInfoVo">
         /* UrlInfoMapper.selectUrlExist */
         SELECT
             RID AS rid,
@@ -35,7 +35,7 @@
         WHERE ORIGIN_URL = #{originUrl}
     </select>
 
-    <insert id="insertUrl" parameterType="com.musinsa.urlShort.model.UrlInsertVo">
+    <insert id="insertUrl" parameterType="com.sy.urlShort.model.UrlInsertVo">
         /* UrlInfoMapper.insertUrl */
         INSERT INTO URL_INFO (
             RID,
@@ -49,7 +49,7 @@
                  )
     </insert>
 
-    <update id="updateShortUrl" parameterType="com.musinsa.urlShort.model.UrlUpdateVo">
+    <update id="updateShortUrl" parameterType="com.sy.urlShort.model.UrlUpdateVo">
         /* UrlInfoMapper.updateShortUrl */
         UPDATE URL_INFO
         SET
@@ -57,7 +57,7 @@
         WHERE RID = #{rid}
     </update>
 
-    <update id="updateUrl" parameterType="com.musinsa.urlShort.model.UrlUpdateVo">
+    <update id="updateUrl" parameterType="com.sy.urlShort.model.UrlUpdateVo">
         /* UrlInfoMapper.updateUrl */
         UPDATE URL_INFO
         SET
@@ -65,7 +65,7 @@
         WHERE RID = #{rid}
     </update>
 
-    <delete id="deleteUrl" parameterType="com.musinsa.urlShort.model.UrlDeleteVo">
+    <delete id="deleteUrl" parameterType="com.sy.urlShort.model.UrlDeleteVo">
         /* UrlInfoMapper.deleteUrl */
         DELETE
         FROM URL_INFO

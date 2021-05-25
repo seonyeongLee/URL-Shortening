@@ -1,4 +1,4 @@
-package com.musinsa.common.config;
+package com.sy.common.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;

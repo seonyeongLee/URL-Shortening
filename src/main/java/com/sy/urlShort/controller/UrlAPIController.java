@@ -1,11 +1,10 @@
-package com.musinsa.urlShort.controller;
+package com.sy.urlShort.controller;
 
-import com.musinsa.urlShort.model.UrlDetailReqVo;
-import com.musinsa.urlShort.model.UrlInfoVo;
-import com.musinsa.urlShort.service.UrlService;
+import com.sy.urlShort.model.UrlDetailReqVo;
+import com.sy.urlShort.model.UrlInfoVo;
+import com.sy.urlShort.service.UrlService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
-package com.musinsa.urlShort.service;
+package com.sy.urlShort.service;
 
-import com.musinsa.urlShort.model.UrlDetailReqVo;
-import com.musinsa.urlShort.model.UrlInfoVo;
+import com.sy.urlShort.model.UrlDetailReqVo;
+import com.sy.urlShort.model.UrlInfoVo;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
